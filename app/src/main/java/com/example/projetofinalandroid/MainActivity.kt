@@ -15,6 +15,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        val username = binding.edtUsername.text.toString()
+        val password = binding.edtPassword.text.toString()
 
     }
 }

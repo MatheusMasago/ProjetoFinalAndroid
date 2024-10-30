@@ -1,5 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Cores primárias -->
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <!-- Cores de fundo -->
+    <color name="backgroundLight">#FFFFFF</color>
+    <color name="backgroundDark">#121212</color>
+
+    <!-- Cores de texto -->
+    <color name="textPrimary">#212121</color>
+    <color name="textSecondary">#757575</color>
+    <color name="textOnPrimary">#FFFFFF</color>
+    <color name="textOnSecondary">#000000</color>
+
+    <!-- Cores neutras -->
+    <color name="neutralGray">#9E9E9E</color>
+    <color name="neutralLightGray">#EEEEEE</color>
+    <color name="neutralDarkGray">#616161</color>
+
+    <!-- Cores de alerta -->
+    <color name="alertRed">#D32F2F</color>
+    <color name="alertYellow">#FFEB3B</color>
+    <color name="alertGreen">#4CAF50</color>
+
+    <!-- Cores adicionais -->
+    <color name="blueSky">#2196F3</color>
+    <color name="orangeSunset">#FF5722</color>
+    <color name="purpleLavender">#9C27B0</color>
+    <color name="brownWood">#795548</color>
+    <color name="pinkRose">#E91E63</color>
+    <color name="tealOcean">#009688</color>
+    <color name="limeGreen">#CDDC39</color>
+
+    <!-- Cor TAN -->
+    <color name="colorTan">#D2B48C</color>
 </resources>
