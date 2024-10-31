@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("com.google.devtools.ksp") version "1.8.10-1.0.9" apply false
 }
 
 android {
@@ -39,9 +40,13 @@ android {
 }
 
 dependencies {
-    implementation(libs.androidx.room.runtime)
 
+    implementation (libs.androidx.room.runtime.v250) // Update to your version
     annotationProcessor(libs.androidx.room.compiler)
+    implementation (libs.androidx.room.runtime) // Update to your Room version
+    //implementation(libs.androidx.room.runtime)
+    //annotationProcessor(libs.androidx.room.compiler)
+
     implementation(libs.androidx.room.ktx)
 
     // optional - RxJava2 support for Room
@@ -59,6 +64,8 @@ dependencies {
     // optional - Paging 3 Integration
     implementation(libs.androidx.room.paging)
 
+
+    //ksp(libs.androidx.room.compiler)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
