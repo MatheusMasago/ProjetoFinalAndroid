@@ -49,6 +49,7 @@ dependencies {
 
     implementation(libs.androidx.room.ktx)
 
+    implementation(libs.material.v1110)
     // optional - RxJava2 support for Room
     implementation(libs.androidx.room.rxjava2)
 

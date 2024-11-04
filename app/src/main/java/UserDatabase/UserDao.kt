@@ -13,6 +13,9 @@ interface UserDao {
     @Insert
     fun insertAll(vararg user: List<UserEntity>)
 
+    @Insert
+    fun insert(user: UserEntity)
+
     @Delete
     fun delete(user: UserEntity)
 
