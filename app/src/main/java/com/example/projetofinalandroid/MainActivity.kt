@@ -22,9 +22,8 @@ class MainActivity : AppCompatActivity() {
     private val db by lazy {
         Room.databaseBuilder(
             applicationContext,
-            UserDataBase::class.java, "database-user"
+            UserDataBase::class.java, "UserDataBase"
         ).build()
-
     }
     private val userDao: UserDao by lazy {
         db.getUserDao()
@@ -34,35 +33,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        insertUser()
+        //insertUser()
 
-        val username = binding.edtUsername.text.toString()
-        val password = binding.edtPassword.text.toString()
-
-    }
-    private fun insertUser(){
-        val usersEntity = userList.map {
-            UserEntity(
-                id = 0,
-                userName = it.name,
-                userPassword = it.password,
-            )
+        binding.btnLogin.setOnClickListener {
+            val username = binding.edtUsername.text.toString()
+            val password = binding.edtPassword.text.toString()
         }
-        GlobalScope.launch(Dispatchers.IO) {
-            userDao.insertAll(usersEntity)
-        }
-
     }
-
     /*private fun deleteUser(){
         val usersEntity =
         userDao.delete()
     }*/
-    val userList = listOf(
-        UserUiData(
-            id = 1,
-            name = "user1",
-            password = "pass1"
-        )
-    )
 }
