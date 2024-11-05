@@ -19,6 +19,7 @@ class CreateTaskBottomSheet: BottomSheetDialogFragment() {
         val btnAddTask = view.findViewById<Button>(R.id.btn_add_task)
         val edtNewTask = view.findViewById<TextInputEditText>(R.id.edt_new_task)
 
+
         return view
 
     }

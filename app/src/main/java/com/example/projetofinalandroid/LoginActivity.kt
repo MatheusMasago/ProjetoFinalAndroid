@@ -1,11 +1,13 @@
 package com.example.projetofinalandroid
 
+import Adapter.TaskListAdapter
+import Data.TasksMock
+import Model.Task
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.projetofinalandroid.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -16,12 +18,17 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val rv = binding.rvTasks
-        //TODO CRIAR ADAPTER
+        binding.rvTasks.layoutManager = LinearLayoutManager(this)
+        val mock = TasksMock()
+        binding.rvTasks.adapter = TaskListAdapter(mock.taskList, TaskListAdapter.OnClickListener{ task ->
+            Toast.makeText(this, task.tarefa, Toast.LENGTH_SHORT).show()
+
+        })
 
         binding.btnShopList.setOnClickListener {
             val intent = Intent(this, ShopListActivity::class.java)
             startActivity(intent)
         }
+        val task = ArrayList<String>()
     }
 }

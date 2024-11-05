@@ -1,9 +1,9 @@
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("com.google.devtools.ksp") version "1.8.10-1.0.9" apply false
 }
-
 android {
     namespace = "com.example.projetofinalandroid"
     compileSdk = 35

@@ -4,6 +4,7 @@ import UserDatabase.UserDao
 import UserDatabase.UserDataBase
 import UserDatabase.UserEntity
 import UserDatabase.UserUiData
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -38,6 +39,11 @@ class MainActivity : AppCompatActivity() {
         binding.btnLogin.setOnClickListener {
             val username = binding.edtUsername.text.toString()
             val password = binding.edtPassword.text.toString()
+        }
+
+        binding.btnSignIn.setOnClickListener {
+            val intent = Intent(this, CreaterAccountActivity::class.java)
+            startActivity(intent)
         }
     }
     /*private fun deleteUser(){

@@ -1,7 +1,8 @@
 [versions]
-agp = "8.7.1"
+agp = "8.6.0"
 androidxRoomRuntime = "2.5.0"
 comGoogleDevtoolsKspGradlePluginVersion = "<ksp_version>"
+gradle = "8.6.1"
 kotlin = "1.9.24"
 coreKtx = "1.15.0"
 junit = "4.13.2"
@@ -27,6 +28,7 @@ androidx-room-runtime-v250 = { module = "androidx.room:room-runtime", version.re
 androidx-room-rxjava2 = { module = "androidx.room:room-rxjava2", version.ref = "roomCommon" }
 androidx-room-rxjava3 = { module = "androidx.room:room-rxjava3", version.ref = "roomCommon" }
 androidx-room-testing = { module = "androidx.room:room-testing", version.ref = "roomCommon" }
+gradle = { module = "com.android.tools.build:gradle", version.ref = "gradle" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }

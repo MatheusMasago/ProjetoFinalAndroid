@@ -6,10 +6,7 @@ import UserDatabase.UserEntity
 import UserDatabase.UserUiData
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.room.Room
 import com.example.projetofinalandroid.databinding.ActivityCreaterAccountBinding
 import kotlinx.coroutines.Dispatchers
@@ -25,7 +22,6 @@ class CreaterAccountActivity : AppCompatActivity() {
             applicationContext,
             UserDataBase::class.java, "UserDataBase"
         ).build()
-
     }
     private val userDao: UserDao by lazy {
         db.getUserDao()
@@ -46,7 +42,6 @@ class CreaterAccountActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-
     private fun insertUser(username: String, password: String){
         val usersEntity = userList.map {
             UserEntity(
@@ -56,9 +51,8 @@ class CreaterAccountActivity : AppCompatActivity() {
             )
         }
         GlobalScope.launch(Dispatchers.IO) {
-            userDao.insertAll(usersEntity)
+            userDao.insert(usersEntity)
         }
-
     }
     val userList = listOf(
         UserUiData(
