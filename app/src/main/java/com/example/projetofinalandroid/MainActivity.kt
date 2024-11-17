@@ -1,47 +1,44 @@
 package com.example.projetofinalandroid
 
-import UserDatabase.UserDao
-import UserDatabase.UserDataBase
-import UserDatabase.UserEntity
-import UserDatabase.UserUiData
+
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.room.Room
 import com.example.projetofinalandroid.databinding.ActivityMainBinding
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
     private val binding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
-    private val db by lazy {
-        Room.databaseBuilder(
-            applicationContext,
-            UserDataBase::class.java, "UserDataBase"
-        ).build()
-    }
-    private val userDao: UserDao by lazy {
-        db.getUserDao()
+    private val auth by lazy{
+        FirebaseAuth.getInstance()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        //insertUser()
 
         binding.btnLogin.setOnClickListener {
-            val username = binding.edtUsername.text.toString()
+            val email = binding.edtEmail.text.toString()
             val password = binding.edtPassword.text.toString()
+
+            auth.signInWithEmailAndPassword(email, password)
+                .addOnSuccessListener {
+                    if(auth.currentUser?.isEmailVerified == true){
+                        Toast.makeText(this,"Logado com sucesso", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this, TasksListActivity::class.java)
+                        startActivity(intent)
+                    }
+                }.addOnFailureListener {
+                    Toast.makeText(this,"Erro ao logar", Toast.LENGTH_SHORT).show()
+                }
+        }
+        binding.btnCreateAccount.setOnClickListener {
+            val intent = Intent(this, CreateAccountActivity::class.java)
+            startActivity(intent)
+        }
         }
     }
-    /*private fun deleteUser(){
-        val usersEntity =
-        userDao.delete()
-    }*/
-}

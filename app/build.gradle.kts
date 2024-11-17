@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("com.google.gms.google-services")
     id("com.google.devtools.ksp") version "1.8.10-1.0.9" apply false
 }
 
@@ -40,34 +41,11 @@ android {
 }
 
 dependencies {
-
-    implementation (libs.androidx.room.runtime.v250) // Update to your version
-    annotationProcessor(libs.androidx.room.compiler)
-    implementation (libs.androidx.room.runtime) // Update to your Room version
-    //implementation(libs.androidx.room.runtime)
-    //annotationProcessor(libs.androidx.room.compiler)
-
-    implementation(libs.androidx.room.ktx)
-
-    implementation(libs.material.v1110)
-    // optional - RxJava2 support for Room
-    implementation(libs.androidx.room.rxjava2)
-
-    // optional - RxJava3 support for Room
-    implementation(libs.androidx.room.rxjava3)
-
-    // optional - Guava support for Room, including Optional and ListenableFuture
-    implementation(libs.androidx.room.guava)
-
-    // optional - Test helpers
-    testImplementation(libs.androidx.room.testing)
-
-    // optional - Paging 3 Integration
-    implementation(libs.androidx.room.paging)
-
-
-    //ksp(libs.androidx.room.compiler)
-
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.auth.ktx)
+    implementation(libs.firebase.storage.ktx)
+    implementation(libs.firebase.firestore.ktx)
+    implementation(libs.firebase.analytics)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

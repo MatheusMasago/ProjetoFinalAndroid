@@ -1,5 +1,6 @@
 package com.example.projetofinalandroid
 
+import TaskListener
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +10,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.textfield.TextInputEditText
 
 class CreateTaskBottomSheet: BottomSheetDialogFragment() {
-
+var taskListener: TaskListener? = null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -19,6 +20,13 @@ class CreateTaskBottomSheet: BottomSheetDialogFragment() {
         val btnAddTask = view.findViewById<Button>(R.id.btn_add_task)
         val edtNewTask = view.findViewById<TextInputEditText>(R.id.edt_new_task)
 
+        btnAddTask.setOnClickListener {
+            val task = edtNewTask.text.toString()
+            if (task.isNotEmpty()) {
+                taskListener?.onTaskAdded(task)
+                dismiss()
+            }
+        }
         return view
 
     }

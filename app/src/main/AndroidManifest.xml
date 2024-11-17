@@ -13,10 +13,19 @@
         android:theme="@style/Theme.ProjetoFinalAndroid"
         tools:targetApi="31">
         <activity
-            android:name=".LoginActivity"
+            android:name=".ShopListActivity"
             android:exported="false" />
         <activity
-            android:name=".CreaterAccountActivity"
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RecoverPasswordActiviy"
+            android:exported="false" />
+        <activity
+            android:name=".TasksListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CreateAccountActivity"
             android:exported="false" />
         <activity
             android:name=".SplashScreenActivity"
